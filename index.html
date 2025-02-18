@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio - UI/UX</title>
+    <title>Meu Portfólio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -17,66 +17,81 @@
         .section {
             padding: 50px;
         }
+        .tech-block {
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .tech-block:hover {
+            transform: scale(1.05);
+        }
+        .project-block {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
-
-    <!-- Seção Inicial -->
     <section class="hero">
         <h1>Olá, sou Paulo Amorim 👋</h1>
-        <p>Dev(designer UI/UX) apaixonado por criar interfaces incríveis!</p>
+        <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
     </section>
-
-    <!-- Seção Sobre Mim -->
-    <section class="section">
-        <div class="container">
-            <h2>Sobre Mim</h2>
-            <p>Sou um dev iniciante focado em criar interfaces intuitivas e experiências de usuário incríveis. Tenho experiência com Figma, UX Research e Design Thinking.</p>
+    
+    <section class="section container">
+        <h2>Minhas Tecnologias</h2>
+        <div class="row">
+            <div class="col-md-4 tech-block" onclick="showProjects('uiux')">
+                <img src="uiux_logo.png" width="50"><br>
+                <h4>UI/UX Design</h4>
+            </div>
+            <div class="col-md-4 tech-block" onclick="showProjects('java')">
+                <img src="java_logo.png" width="50"><br>
+                <h4>Java</h4>
+            </div>
+            <div class="col-md-4 tech-block" onclick="showProjects('javascript')">
+                <img src="js_logo.png" width="50"><br>
+                <h4>JavaScript</h4>
+            </div>
         </div>
     </section>
-
-    <!-- Seção Projetos -->
-    <section class="section bg-light">
-        <div class="container">
-            <h2>Projetos</h2>
-            <ul>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">UI/UX Designer(HTML/CSS) AlertaBlu - uma re-leitura do layout oficial do "AlertBlu"(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/yyyyyy" target="_blank">UI/UX Designer(HTML/CSS) AlertaBlu(calamidade) - Sistema de atendimento em situaçoes de emergência e calamidade pública(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">UI/UX Designer(HTML/CSS) Baymax - personagem do filme "Big Hero"(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">UI/UX Designer(HTML/CSS) Logotipo de grandes empresas(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">UI/UX Designer(HTML/CSS) Layout do Spotify(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Programação(Java) StudyFlow – Um app que facilita a vida acadêmica dos estudantes(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Programação(Java) Calculadora(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Editor de texto(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Programação(Java) Sistema de comanda(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Tic Tac Toe - Jogo da velha(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Calculadora de IMC(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Calculadora de Ciêntifica(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Sistema de Biblioteca(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Sistema de Vendas(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) Lista de Tarefas(Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-                <li><a href="https://www.figma.com/xxxxxx" target="_blank">Pragramação(Java) (Trabalho Acadêmico)</a></li>
-            </ul>
-        </div>
+    
+    <section class="section container">
+        <h2>Projetos</h2>
+        <div id="project-list" class="row"></div>
     </section>
-
-    <!-- Seção Contato -->
-    <section class="section">
-        <div class="container">
-            <h2>Contato</h2>
-            <p>Email: pauloamorrim91@gmail.com</p>
-            <p>Telefone: 47 9 9794-7678</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">paulo-amorim88</a></p>
-        </div>
-    </section>
-
+    
+    <script>
+        const projects = {
+            uiux: [
+                { name: "AlertaBlu", link: "https://www.figma.com/xxxxxx" },
+                { name: "Baymax", link: "https://www.figma.com/yyyyyy" }
+            ],
+            java: [
+                { name: "StudyFlow", link: "https://www.figma.com/xxxxxx" },
+                { name: "Calculadora", link: "https://www.figma.com/yyyyyy" }
+            ],
+            javascript: [
+                { name: "Jogo da Velha", link: "https://www.figma.com/zzzzzz" }
+            ]
+        };
+        
+        function showProjects(tech) {
+            const projectList = document.getElementById("project-list");
+            projectList.innerHTML = "";
+            projects[tech].forEach(proj => {
+                projectList.innerHTML += `
+                    <div class="col-md-4 project-block">
+                        <a href="${proj.link}" target="_blank">${proj.name}</a>
+                    </div>
+                `;
+            });
+        }
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
