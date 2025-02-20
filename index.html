@@ -142,7 +142,7 @@
             ]
         };
         
-        function showProjects(tech) {
+function showProjects(tech) {
     const projectList = document.getElementById("project-list");
     projectList.innerHTML = "";
 
@@ -151,8 +151,8 @@
         return;
     }
 
-    projects[tech].forEach((proj, index) => {
-        projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${index + 1}. ${proj.name}</a></li>`;
+    projects[tech].forEach((proj) => {
+        projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${proj.name}</a></li>`;
     });
 }
 
