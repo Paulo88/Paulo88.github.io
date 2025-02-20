@@ -24,10 +24,12 @@
             padding: 20px;
             gap: 15px;
             white-space: nowrap;
+            width: 100%;
+            background: #ffffff;
         }
         .tech-block {
             flex: 0 0 auto;
-            width: 200px;
+            width: 150px;
             text-align: center;
             padding: 15px;
             border: 2px solid #ddd;
@@ -41,6 +43,7 @@
         }
         .carousel-container {
             position: relative;
+            width: 100%;
         }
         .carousel-btn {
             position: absolute;
@@ -49,7 +52,7 @@
             background: rgba(0,0,0,0.5);
             color: white;
             border: none;
-            padding: 20px;
+            padding: 10px;
             cursor: pointer;
             border-radius: 50%;
         }
@@ -67,17 +70,17 @@
         <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
     </section>
     
-    <section class="section container">
+    <section class="section">
         <h2>Minhas Tecnologias</h2>
         <div class="carousel-container">
             <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
             <div class="tech-carousel" id="techCarousel">
                 <div class="tech-block" onclick="showProjects('uiux')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="150"><br>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="100"><br>
                     <h4>UI/UX Design</h4>
                 </div>
                 <div class="tech-block" onclick="showProjects('java')">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60"><br>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="70"><br>
                     <h4>Java</h4>
                 </div>
                 <div class="tech-block" onclick="showProjects('javascript')">
@@ -93,7 +96,7 @@
                     <h4>C</h4>
                 </div>
                 <div class="tech-block" onclick="showProjects('htmlcss')">
-                    <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="150"><br>
+                    <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="100"><br>
                     <h4>HTML/CSS</h4>
                 </div>
                 <div class="tech-block" onclick="showProjects('python')">
@@ -111,7 +114,7 @@
     
     <section class="section container">
         <h2>Projetos</h2>
-        <div id="project-list" class="row"></div>
+        <ol id="project-list"></ol>
     </section>
     
     <script>
@@ -148,12 +151,8 @@
                 return;
             }
             
-            projects[tech].forEach(proj => {
-                projectList.innerHTML += `
-                    <div class="col-md-4 project-block">
-                        <a href="${proj.link}" target="_blank">${proj.name}</a>
-                    </div>
-                `;
+            projects[tech].forEach((proj, index) => {
+                projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${index + 1}° ${proj.name}</a></li>`;
             });
         }
     </script>
