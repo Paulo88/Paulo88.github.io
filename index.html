@@ -8,19 +8,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            transition: background 0.3s, color 0.3s;
-        }
-            .dark-mode {
-            background: #121212;
-            color: #ffffff;
         }
         .hero {
             background-color: #f8f9fa;
-            padding: 50px;
+            padding: 100px;
             text-align: center;
+        }
+        .hero p {
+            font-size: 1.5em;
         }
         .section {
             padding: 50px;
+        }
+        .section h2 {
+            font-size: 2em;
         }
         .tech-carousel {
             display: flex;
@@ -67,124 +68,88 @@
         .next-btn {
             right: 10px;
         }
-        .dark-light-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            padding: 10px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .left-content {
+            width: 60%;
+        }
+        .right-content {
+            width: 35%;
         }
     </style>
 </head>
 <body>
-     <button class="dark-light-btn" onclick="toggleDarkMode()">🌙</button>
-   
     <section class="hero">
         <h1>Olá, sou Paulo Amorim 👋</h1>
         <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
     </section>
-
-      <section class="section">
-        <h2>Sobre</h2>
-        <p>🔥 Minhas principais habilidades:</p>
-        <ul>
-            <li><strong>Back-end:</strong> Java (Spring Boot, MVC, POO), .NET (C#), SQL (PL/SQL)</li>
-            <li><strong>Front-end:</strong> React, Angular, HTML, CSS, JavaScript</li>
-            <li><strong>Banco de Dados:</strong> SQL Server, PostgreSQL, MySQL</li>
-            <li><strong>Outras tecnologias:</strong> APIs REST, Git, Docker</li>
-        </ul>
-    </section>
-
     
-    <section class="section">
-        <h2>Minhas Tecnologias</h2>
-        
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
-            <div class="tech-carousel" id="techCarousel">
-           
-                <div class="tech-block" onclick="showProjects('uiux')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="170"><br>
-            <h4>UI/UX Design</h4>
-              </div>
-                
-                <div class="tech-block" onclick="showProjects('java')">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60"><br>
-                    <h4>Java</h4>
+    <div class="content-container container">
+        <div class="left-content">
+            <section class="section">
+                <h2>Sobre</h2>
+                <p>🔥 Minhas principais habilidades:</p>
+                <ul>
+                    <li>Back-end: Java (Spring Boot, MVC, POO), .NET (C#), SQL (PL/SQL)</li>
+                    <li>Front-end: React, Angular, HTML, CSS, JavaScript</li>
+                    <li>Banco de Dados: SQL Server, PostgreSQL, MySQL</li>
+                    <li>Outras tecnologias: APIs REST, Git, Docker</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h2>Minhas Tecnologias</h2>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
+                    <div class="tech-carousel" id="techCarousel">
+                        <div class="tech-block" onclick="showProjects('uiux')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="170"><br>
+                            <h4>UI/UX Design</h4>
+                        </div>
+                        <div class="tech-block" onclick="showProjects('java')">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60"><br>
+                            <h4>Java</h4>
+                        </div>
+                        <div class="tech-block" onclick="showProjects('cpp')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100"><br>
+                            <h4>C++</h4>
+                        </div>
+                        <div class="tech-block" onclick="showProjects('c')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="100"><br>
+                            <h4>C</h4>
+                        </div>
+                        <div class="tech-block" onclick="showProjects('htmlcss')">
+                            <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="180"><br>
+                            <h4>HTML/CSS</h4>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
                 </div>
-                
-                <div class="tech-block" onclick="showProjects('cpp')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100"><br>
-                    <h4>C++</h4>
-                </div>
-                
-                <div class="tech-block" onclick="showProjects('c')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="100"><br>
-                    <h4>C</h4>
-                </div>
-                
-                <div class="tech-block" onclick="showProjects('htmlcss')">
-                    <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="180"><br>
-                    <h4>HTML/CSS</h4>
-                </div>
-                
-            </div>
-            <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
+            </section>
         </div>
-    </section>
+        
+        <div class="right-content">
+            <section class="section">
+                <h2>Projetos</h2>
+                <ol id="project-list"></ol>
+            </section>
+            
+            <section class="section">
+                <h2>Contato</h2>
+                <p><img src="gmail-icon.png" width="20"> pauloamorrim91@gmail.com</p>
+                <p><img src="phone-icon.png" width="20"> 47 9 9794-7678</p>
+                <p><img src="linkedin-icon.png" width="20"> <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">LinkedIn</a></p>
+            </section>
+        </div>
+    </div>
     
-    <section class="section container">
-        <h2>Projetos</h2>
-        <ol id="project-list"></ol>
-    </section>
-
-    <section class="section container">
-        <h2>Contato</h2>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" width="20"> Email: pauloamorrim91@gmail.com</p>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="20"> Telefone: 47 9 9794-7678</p>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20"> <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">LinkedIn</a></p>
-    </section>
-
-    
-     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-        }
+    <script>
         function scrollCarousel(distance) {
             document.getElementById("techCarousel").scrollBy({ left: distance, behavior: 'smooth' });
         }
-        
-        const projects = {
-            uiux: [
-                { name: "AlertaBlu", link: "https://www.figma.com/xxxxxx" },
-                { name: "Baymax", link: "https://www.figma.com/yyyyyy" }
-            ],
-            java: [
-                { name: "StudyFlow", link: "https://www.figma.com/xxxxxx" },
-                { name: "Calculadora", link: "https://www.figma.com/yyyyyy" },
-            ]
-        };
-        
-function showProjects(tech) {
-    const projectList = document.getElementById("project-list");
-    projectList.innerHTML = "";
-
-    if (!projects[tech]) {
-        projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
-        return;
-    }
-
-    projects[tech].forEach((proj) => {
-        projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${proj.name}</a></li>`;
-    });
-}
-
     </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
