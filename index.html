@@ -11,7 +11,7 @@
         }
         .hero {
             background-color: #f8f9fa;
-            padding: 50px;
+            padding: 100px;
             text-align: center;
         }
         .section {
@@ -75,38 +75,32 @@
         <div class="carousel-container">
             <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
             <div class="tech-carousel" id="techCarousel">
+               
                 <div class="tech-block" onclick="showProjects('uiux')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="170"><br>
                     <h4>UI/UX Design</h4>
                 </div>
+                
                 <div class="tech-block" onclick="showProjects('java')">
                     <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60"><br>
                     <h4>Java</h4>
                 </div>
-                <div class="tech-block" onclick="showProjects('javascript')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" width="110"><br>
-                    <h4>JavaScript</h4>
-                </div>
+                
                 <div class="tech-block" onclick="showProjects('cpp')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100"><br>
                     <h4>C++</h4>
                 </div>
+                
                 <div class="tech-block" onclick="showProjects('c')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="100"><br>
                     <h4>C</h4>
                 </div>
+                
                 <div class="tech-block" onclick="showProjects('htmlcss')">
                     <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="180"><br>
                     <h4>HTML/CSS</h4>
                 </div>
-                <div class="tech-block" onclick="showProjects('python')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="100"><br>
-                    <h4>Python</h4>
-                </div>
-                <div class="tech-block" onclick="showProjects('react')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="130"><br>
-                    <h4>React</h4>
-                </div>
+                
             </div>
             <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
         </div>
@@ -130,15 +124,6 @@
             java: [
                 { name: "StudyFlow", link: "https://www.figma.com/xxxxxx" },
                 { name: "Calculadora", link: "https://www.figma.com/yyyyyy" },
-            ],
-            javascript: [
-                { name: "Jogo da Velha", link: "https://www.figma.com/zzzzzz" }
-            ],
-            python: [
-                { name: "Automação de Processos", link: "https://github.com/seu_repositorio" }
-            ],
-            react: [
-                { name: "Dashboard Interativa", link: "https://github.com/seu_repositorio" }
             ]
         };
         
