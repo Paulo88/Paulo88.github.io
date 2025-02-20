@@ -1,206 +1,228 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            transition: background 0.3s, color 0.3s;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Meu Portfólio</title>
+
+        <!-- Importação do Bootstrap para estilização -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+        <style>
+            /* Estilização geral da página */
+            body {
+                font-family: Arial, sans-serif;
+                transition: background 0.3s, color 0.3s;
+            }
+
+            /* Modo escuro */
             .dark-mode {
-            background: #121212;
-            color: #ffffff;
-        }
-        .hero {
-            background-color: #f8f9fa;
-            padding: 100px;
-            text-align: center;
-        }
+                background: #121212;
+                color: #ffffff;
+            }
 
-                .hero p {
-            font-size: 1.5em;
-        }
+            /* Estilização do banner inicial */
+            .hero {
+                background-color: #f8f9fa;
+                padding: 100px;
+                text-align: center;
+            }
 
-        .section {
-            padding: 50px;
-             font-size: 1.5em;
-        }
+            .hero p {
+                font-size: 1.5em;
+            }
 
-        .tech-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 20px;
-            gap: 15px;
-            white-space: nowrap;
-            width: 100%;
-            background: #ffffff;
-        }
-        .tech-block {
-            flex: 0 0 auto;
-            width: 200px;
-            text-align: center;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            background: #fff;
-        }
-        .tech-block:hover {
-            transform: scale(1.05);
-        }
-        .carousel-container {
-            position: relative;
-            width: 100%;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-        .prev-btn {
-            left: 10px;
-        }
-        .next-btn {
-            right: 10px;
-        }
-        .dark-light-btn {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            padding: 10px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            /* Estilos das seções */
+            .section {
+                padding: 50px;
+                font-size: 1.5em;
+            }
 
+            /* Carrossel de tecnologias */
+            .tech-carousel {
+                display: flex;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                padding: 20px;
+                gap: 15px;
+                white-space: nowrap;
+                width: 100%;
+                background: #ffffff;
+            }
 
-        .left-content {
-            width: 35%;
-            text-align: left;
-        }
-        
-    </style>
-</head>
-<body>
-     <button class="dark-light-btn" onclick="toggleDarkMode()">🌙</button>
-   
-    <section class="hero">
-        <h1>Olá, sou Paulo Amorim 👋</h1>
-        <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
-    </section>
+            .tech-block {
+                flex: 0 0 auto;
+                width: 200px;
+                text-align: center;
+                padding: 15px;
+                border: 2px solid #ddd;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 0.3s;
+                background: #fff;
+            }
 
-      <section class="section">
-        <h2>Sobre</h2>
-        <p>🔥 Minhas principais habilidades:</p>
-        <ul>
-            <li><strong>Back-end:</strong> Java (Spring Boot, MVC, POO), .NET (C#), SQL (PL/SQL)</li>
-            <li><strong>Front-end:</strong> React, Angular, HTML, CSS, JavaScript</li>
-            <li><strong>Banco de Dados:</strong> SQL Server, PostgreSQL, MySQL</li>
-            <li><strong>Outras tecnologias:</strong> APIs REST, Git, Docker</li>
-        </ul>
-    </section>
+            /* Efeito hover no bloco das tecnologias */
+            .tech-block:hover {
+                transform: scale(1.05);
+            }
 
-    
-    <section class="section">
-        <h2>Minhas Tecnologias</h2>
-        
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
-            <div class="tech-carousel" id="techCarousel">
-           
-                <div class="tech-block" onclick="showProjects('uiux')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="170"><br>
-            <h4>UI/UX Design</h4>
-              </div>
-                
-                <div class="tech-block" onclick="showProjects('java')">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60"><br>
-                    <h4>Java</h4>
+            .carousel-container {
+                position: relative;
+                width: 100%;
+            }
+
+            /* Botões de navegação do carrossel */
+            .carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            .prev-btn {
+                left: 10px;
+            }
+            .next-btn {
+                right: 10px;
+            }
+
+            /* Botão para alternar entre modo claro e escuro */
+            .dark-light-btn {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+                background: #333;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .left-content {
+                width: 35%;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Botão para ativar o modo escuro -->
+        <button class="dark-light-btn" onclick="toggleDarkMode()">🌙</button>
+
+        <!-- Seção de apresentação -->
+        <section class="hero">
+            <h1>Olá, sou Paulo Amorim 👋</h1>
+            <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
+        </section>
+
+        <!-- Seção sobre -->
+        <section class="section">
+            <h2>Sobre</h2>
+            <p>🔥 Minhas principais habilidades:</p>
+            <ul>
+                <li><strong>Back-end:</strong> Java (Spring Boot, MVC, POO), .NET (C#), SQL (PL/SQL)</li>
+                <li><strong>Front-end:</strong> React, Angular, HTML, CSS, JavaScript</li>
+                <li><strong>Banco de Dados:</strong> SQL Server, PostgreSQL, MySQL</li>
+                <li><strong>Outras tecnologias:</strong> APIs REST, Git, Docker</li>
+            </ul>
+        </section>
+
+        <!-- Seção do carrossel de tecnologias -->
+        <section class="section">
+            <h2>Minhas Tecnologias</h2>
+
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
+                <div class="tech-carousel" id="techCarousel">
+                    <!-- Blocos das tecnologias -->
+                    <div class="tech-block" onclick="showProjects('uiux')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Design_De_Interface.png/400px-Design_De_Interface.png" width="170" /><br />
+                        <h4>UI/UX Design</h4>
+                    </div>
+
+                    <div class="tech-block" onclick="showProjects('java')">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="60" /><br />
+                        <h4>Java</h4>
+                    </div>
+
+                    <div class="tech-block" onclick="showProjects('cpp')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100" /><br />
+                        <h4>C++</h4>
+                    </div>
+
+                    <div class="tech-block" onclick="showProjects('c')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="100" /><br />
+                        <h4>C</h4>
+                    </div>
+
+                    <div class="tech-block" onclick="showProjects('htmlcss')">
+                        <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="180" /><br />
+                        <h4>HTML/CSS</h4>
+                    </div>
                 </div>
-                
-                <div class="tech-block" onclick="showProjects('cpp')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="100"><br>
-                    <h4>C++</h4>
-                </div>
-                
-                <div class="tech-block" onclick="showProjects('c')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="100"><br>
-                    <h4>C</h4>
-                </div>
-                
-                <div class="tech-block" onclick="showProjects('htmlcss')">
-                    <img src="https://img-c.udemycdn.com/course/750x422/539660_27d6_7.jpg" width="180"><br>
-                    <h4>HTML/CSS</h4>
-                </div>
-                
+                <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
             </div>
-            <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
+        </section>
+
+        <!-- Seção de Projetos -->
+        <div class="left-content">
+            <section class="section container">
+                <h2>Projetos</h2>
+                <ol id="project-list"></ol>
+            </section>
+
+            <!-- Seção de Contato -->
+            <section class="section container">
+                <h2>Contato</h2>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" width="20" /> Email: pauloamorrim91@gmail.com</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="20" /> Telefone: 47 9 9794-7678</p>
+                <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" /> <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">LinkedIn</a></p>
+            </section>
         </div>
-    </section>
 
-    <div class="left-content">
-    <section class="section container">
-        <h2>Projetos</h2>
-        <ol id="project-list"></ol>
-    </section>
+        <script>
+            /* Alterna entre modo claro e escuro */
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+            }
+            /* Rola o carrossel */
+            function scrollCarousel(distance) {
+                document.getElementById("techCarousel").scrollBy({ left: distance, behavior: "smooth" });
+            }
 
-    <section class="section container">
-        <h2>Contato</h2>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" width="20"> Email: pauloamorrim91@gmail.com</p>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="20"> Telefone: 47 9 9794-7678</p>
-        <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20"> <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">LinkedIn</a></p>
-    </section>
-        </div>
+            const projects = {
+                uiux: [
+                    { name: "AlertaBlu", link: "https://www.figma.com/xxxxxx" },
+                    { name: "Baymax", link: "https://www.figma.com/yyyyyy" },
+                ],
+                java: [
+                    { name: "StudyFlow", link: "https://www.figma.com/xxxxxx" },
+                    { name: "Calculadora", link: "https://www.figma.com/yyyyyy" },
+                ],
+            };
 
-    
-     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-        }
-        function scrollCarousel(distance) {
-            document.getElementById("techCarousel").scrollBy({ left: distance, behavior: 'smooth' });
-        }
-        
-        const projects = {
-            uiux: [
-                { name: "AlertaBlu", link: "https://www.figma.com/xxxxxx" },
-                { name: "Baymax", link: "https://www.figma.com/yyyyyy" }
-            ],
-            java: [
-                { name: "StudyFlow", link: "https://www.figma.com/xxxxxx" },
-                { name: "Calculadora", link: "https://www.figma.com/yyyyyy" },
-            ]
-        };
-        
-function showProjects(tech) {
-    const projectList = document.getElementById("project-list");
-    projectList.innerHTML = "";
+            /* Exibe os projetos de acordo com a tecnologia selecionada */
+            function showProjects(tech) {
+                const projectList = document.getElementById("project-list");
+                projectList.innerHTML = "";
 
-    if (!projects[tech]) {
-        projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
-        return;
-    }
+                if (!projects[tech]) {
+                    projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
+                    return;
+                }
 
-    projects[tech].forEach((proj) => {
-        projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${proj.name}</a></li>`;
-    });
-}
+                projects[tech].forEach((proj) => {
+                    projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${proj.name}</a></li>`;
+                });
+            }
+        </script>
 
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
+
