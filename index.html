@@ -143,18 +143,19 @@
         };
         
         function showProjects(tech) {
-            const projectList = document.getElementById("project-list");
-            projectList.innerHTML = "";
-            
-            if (!projects[tech]) {
-                projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
-                return;
-            }
-            
-            projects[tech].forEach((proj, index) => {
-                projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${index + 1}° ${proj.name}</a></li>`;
-            });
-        }
+    const projectList = document.getElementById("project-list");
+    projectList.innerHTML = "";
+
+    if (!projects[tech]) {
+        projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
+        return;
+    }
+
+    projects[tech].forEach((proj, index) => {
+        projectList.innerHTML += `<li><a href="${proj.link}" target="_blank">${index + 1}. ${proj.name}</a></li>`;
+    });
+}
+
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
