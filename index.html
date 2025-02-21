@@ -16,10 +16,31 @@
             }
 
             /* Modo escuro */
-            .dark-mode .hero{
-                background: #121212;
-                color: #ffffff;
-            }
+            .dark-mode {
+    background: #121212; /* Cor escura para todo o fundo da página */
+    color: #ffffff; /* Cor do texto */
+}
+
+.dark-mode .hero,
+.dark-mode .tech-carousel,
+.dark-mode .section {
+    background-color: #333; /* Fundo escuro para as seções */
+    color: #ffffff; /* Ajusta a cor do texto */
+}
+
+.dark-mode .tech-block {
+    background: #444; /* Fundo dos blocos no modo escuro */
+    border-color: #666; /* Borda mais escura */
+}
+
+.dark-mode .tech-block:hover {
+    background: #555; /* Um tom mais claro ao passar o mouse */
+}
+
+.dark-mode .carousel-btn {
+    background: rgba(255, 255, 255, 0.3); /* Ajusta a cor dos botões do carrossel */
+}
+
 
             /* Estilização do banner inicial */
             .hero {
