@@ -132,8 +132,11 @@
                 cursor: pointer;
             }
 
-            .left-content {
-                width: 35%;
+            .left-content, .container {
+                    width: 100vw; /* Faz o container ocupar toda a largura da tela */
+    max-width: 100%; /* Garante que ele não ultrapasse a tela */
+    padding-left: 15%;
+    padding-right: 15%;
                 text-align: left;
             }
         </style>
