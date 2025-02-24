@@ -1,0 +1,43 @@
+/* Resetando margens e preenchimento */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Estilo da logo estrela */
+.star-logo {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(45deg); /* Gira a estrela */
+}
+
+.star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ffcc00, #ff6600); /* Gradiente da estrela */
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* Forma de estrela */
+  animation: rotate-star 3s infinite ease-in-out; /* Animação da estrela */
+}
+
+/* Animação de rotação */
+@keyframes rotate-star {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
