@@ -1,335 +1,1040 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Meu Portfólio</title>
 
-        <!-- Importação do Bootstrap para estilização -->
-        <link rel="stylesheet" href="projetos/logoestrela/1738885808427.jpg" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/logo.png" type="image/png">
+    <title>DevPortfolio | Paulo Amorim</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --background: #f8f9fa;
+            --text: #212529;
+            --card-bg: #ffffff;
+            --border: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --header-bg: #ffffff;
+            --footer-bg: #212529;
+            --footer-text: #f8f9fa;
+        }
 
-        <style>
-            /* Estilização geral da página */
-            body {
-                font-family: Arial, sans-serif;
-                transition: background 0.3s, color 0.3s;
+        [data-theme="dark"] {
+            --primary: #4cc9f0;
+            --secondary: #4361ee;
+            --accent: #f72585;
+            --background: #121212;
+            --text: #e9ecef;
+            --card-bg: #1e1e1e;
+            --border: #333;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --header-bg: #1e1e1e;
+            --footer-bg: #121212;
+            --footer-text: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle span {
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            margin-top: 3rem;
+        }
+
+        .skills-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--text);
+        }
+
+        .skill-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .skill-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-level {
+            height: 8px;
+            background-color: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tech span {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            background-color: var(--background);
+            color: var(--text);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--footer-text);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            /* Modo escuro */
-            .dark-mode {
-                background: #121212; /* Cor escura para todo o fundo da página */
-                color: #ffffff; /* Cor do texto */
+            nav ul {
+                gap: 1rem;
             }
 
-            .dark-mode .hero,
-            .dark-mode .tech-carousel,
-            .dark-mode .section {
-                background-color: #333; /* Fundo escuro para as seções */
-                color: #ffffff; /* Ajusta a cor do texto */
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .dark-mode .tech-block {
-                background: #444; /* Fundo dos blocos no modo escuro */
-                border-color: #666; /* Borda mais escura */
+            nav ul {
+                justify-content: center;
             }
 
-            .dark-mode .tech-block:hover {
-                background: #555; /* Um tom mais claro ao passar o mouse */
-            }
-
-            .dark-mode .carousel-btn {
-                background: rgba(255, 255, 255, 0.3); /* Ajusta a cor dos botões do carrossel */
-            }
-
-            .dark-mode .left-content,
-            .dark-mode .container {
-                background: #333; /* Mantém o fundo escuro uniforme */
-                color: #ffffff; /* Mantém o texto branco */
-            }
-
-            /* Estilização do banner inicial */
-            .hero {
-                background-color: #f8f9fa;
-                padding: 100px;
-                text-align: center;
+            .hero h1 {
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1.5em;
+                font-size: 1rem;
             }
 
-            /* Estilos das seções */
-            .section {
-                padding: 50px;
-                font-size: 1.5em;
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
+        }
+    </style>
+</head>
 
-            /* Carrossel de tecnologias */
-            .tech-carousel {
-                display: flex;
-                overflow-x: auto;
-                scroll-behavior: smooth;
-                padding: 20px;
-                gap: 15px;
-                white-space: nowrap;
-                width: 100%;
-                background: #ffffff;
-            }
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Dev<span>Portfolio</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <button id="themeToggle" class="theme-toggle">
+                    <span id="themeText">Modo Escuro</span>
+                    🌙
+                </button>
+            </div>
+        </div>
+    </header>
 
-            .tech-block {
-                flex: 0 0 auto;
-                width: 200px;
-                text-align: center;
-                padding: 15px;
-                border: 2px solid #ddd;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: 0.3s;
-                background: #fff;
-            }
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Olá, eu sou <span class="highlight">Paulo Amorim</span></h1>
+            <p>Desenvolvedor Front-end apaixonado por criar interfaces elegantes e funcionais que proporcionam ótimas
+                experiências de usuário.</p>
+            <a href="#contato" class="btn">Entre em contato</a>
+        </div>
+    </section>
 
-            /* Efeito hover no bloco das tecnologias */
-            .tech-block:hover {
-                transform: scale(1.05);
-            }
+    <!-- About Section -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/perfil.jpg" alt="Foto do desenvolvedor">
+                </div>
+                <div class="about-text">
+                    <h3>Desenvolvedor Front-end</h3>
+                    <p>Olá! Sou um desenvolvedor front-end com experiência na criação de aplicações web modernas e
+                        responsivas. Minha paixão é transformar designs complexos em código limpo e eficiente.</p>
+                    <p>Com forte conhecimento em HTML, CSS, JavaScript e frameworks modernos, busco sempre as melhores
+                        práticas de desenvolvimento para entregar interfaces intuitivas e acessíveis.</p>
+                    <p>Além do front-end, também possuo conhecimentos em back-end com tecnologias como C#, Java e Spring
+                        Boot, permitindo uma compreensão completa do ciclo de desenvolvimento.</p>
+                    <a href="files/Paulo Amorim CV.pdf" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            .carousel-container {
-                position: relative;
-                width: 100%;
-            }
-
-            /* Botões de navegação do carrossel */
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 5px;
-                cursor: pointer;
-                border-radius: 100px;
-            }
-            .prev-btn {
-                left: 10px;
-            }
-            .next-btn {
-                right: 10px;
-            }
-
-            /* Botão para alternar entre modo claro e escuro */
-            .dark-light-btn {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 20px;
-                background: #333;
-                color: white;
-                border: none;
-                border-radius: 55px;
-                cursor: pointer;
-            }
-
-            .left-content,
-            .container {
-                width: 100vw; /* Faz o container ocupar toda a largura da tela */
-                max-width: 100%; /* Garante que ele não ultrapasse a tela */
-                padding-left: 15%;
-                padding-right: 15%;
-            }
-
-            .left-content h2,
-            .left-content p,
-            .container h2,
-            .container p,
-            .container ul {
-                text-align: left; /* Alinha o texto à esquerda */
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Botão para ativar o modo escuro -->
-        <button class="dark-light-btn" onclick="toggleDarkMode()">🌙</button>
-
-        <!-- Seção de apresentação -->
-        <section class="hero">
-            <h1>Olá, sou Paulo Amorim 👋</h1>
-            <p>Desenvolvedor apaixonado por criar interfaces incríveis!</p>
-        </section>
-
-        <!-- Seção sobre -->
-        <section class="section">
-            <h2>Sobre mim</h2>
-            <p>
-                Sou estudante de Ciência da Computação na FURB (Blumenau) e apaixonado por desenvolvimento de software. Iniciei minha carreira em Suporte Técnico e NOC, mas foi na programação que encontrei meu verdadeiro propósito. Meu foco
-                é ser um desenvolvedor Fullstack, sempre aprendendo e evoluindo.
-            </p>
-            <p>🔥 Minhas habilidades:</p>
-            <ul>
-                <li><strong>💻 Back-end:</strong> Java (Spring Boot, MVC, POO), .NET (C#), SQL (PL/SQL)</li>
-                <li><strong>🎨 Front-end:</strong> React, Angular, HTML, CSS, JavaScript</li>
-                <li><strong>🗄️ Banco de Dados:</strong> SQL Server, PostgreSQL, MySQL</li>
-                <li><strong>⚙️ Outras tecnologias:</strong> APIs REST, Git, Docker</li>
-            </ul>
-            <p>🎯 Por que me contratar?</p>
-            <p>🚀 Aprendizado contínuo | 💡 Experiência prática em projetos | 🎯 Código limpo e eficiente</p>
-            <p>Mesmo sem experiência formal, já desenvolvi projetos pessoais e acadêmicos que fortaleceram minhas habilidades. dê uma olhadinha abaixo!</p>
-        </section>
-
-        <!-- Seção do carrossel de tecnologias -->
-        <section class="section">
-            <h2>Minhas Tecnologias</h2>
-
-            <div class="carousel-container">
-                <button class="carousel-btn prev-btn" onclick="scrollCarousel(-200)">&#10094;</button>
-                <div class="tech-carousel" id="techCarousel">
-                    <!-- Blocos das tecnologias -->
-                    <div class="tech-block" onclick="showProjects('uiux')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/7858/7858975.png" width="150" /><br />
-                        <h4>UI/UX Design</h4>
+    <!-- Skills Section -->
+    <section class="section" id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Minhas Habilidades</h2>
+            <div class="skills-container">
+                <div class="skills-filters">
+                    <button class="skill-btn active" data-filter="all">Todas</button>
+                    <button class="skill-btn" data-filter="front">Front-end</button>
+                    <button class="skill-btn" data-filter="back">Back-end</button>
+                    <button class="skill-btn" data-filter="database">Banco de Dados</button>
+                </div>
+                <div class="skills-grid">
+                    <!-- Front-end Skills -->
+                    <div class="skill-card" data-category="front">
+                        <div class="skill-icon">🌐</div>
+                        <h3 class="skill-name">HTML</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-category="front">
+                        <div class="skill-icon">🎨</div>
+                        <h3 class="skill-name">CSS</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-category="front">
+                        <div class="skill-icon">⚡</div>
+                        <h3 class="skill-name">JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 15%;"></div>
+                        </div>
                     </div>
 
-                    <div class="tech-block" onclick="showProjects('java')">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" width="84" /><br />
-                        <h4>Java</h4>
+                    <!-- Back-end Skills -->
+                    <div class="skill-card" data-category="back">
+                        <div class="skill-icon">☕</div>
+                        <h3 class="skill-name">Java</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-category="back">
+                        <div class="skill-icon">🔷</div>
+                        <h3 class="skill-name">C#</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-category="back">
+                        <div class="skill-icon">🅒</div>
+                        <h3 class="skill-name">C</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card" data-category="back">
+                        <div class="skill-icon">🍃</div>
+                        <h3 class="skill-name">Spring Boot</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 10%;"></div>
+                        </div>
                     </div>
 
-                    <div class="tech-block" onclick="showProjects('cc')">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" width="140" /><br />
-                        <h4>C++</h4>
-                    </div>
-
-                    <div class="tech-block" onclick="showProjects('c')">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" width="140" /><br />
-                        <h4>C</h4>
-                    </div>
-
-                    <div class="tech-block" onclick="showProjects('HtmlCss')">
-                        <img src="https://cdn-icons-png.flaticon.com/512/17122/17122651.png" width="154" /><br />
-                        <h4>HTML/CSS</h4>
+                    <!-- Database Skills -->
+                    <div class="skill-card" data-category="database">
+                        <div class="skill-icon">🗃️</div>
+                        <h3 class="skill-name">SQL</h3>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 55%;"></div>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-btn next-btn" onclick="scrollCarousel(200)">&#10095;</button>
             </div>
-        </section>
-
-        <!-- Seção de Projetos -->
-        <div class="left-content">
-            <section class="section container">
-                <h2>Projetos</h2>
-                <ol id="project-list"></ol>
-            </section>
-
-            <!-- Seção de Contato -->
-            <section class="section container">
-                <h2>Contato</h2>
-                <p><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" width="20" /> E-mail: pauloamorrim91@gmail.com</p>
-                <p><img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="20" /> Telefone: 47 9 9794-7678</p>
-                <p><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" /> LinkedIn: <a href="https://www.linkedin.com/in/paulo-amorim88/" target="_blank">paulo-amorim88</a></p>
-            </section>
         </div>
+    </section>
 
-        <script>
-            /* Alterna entre modo claro e escuro */
-            function toggleDarkMode() {
-                document.body.classList.toggle("dark-mode");
+    <!-- Projects Section -->
+    <section class="section" id="projetos">
+        <div class="container">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/01 projeto.jpg" alt="Projeto 1">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Spotify</h3>
+                        <p>Recriação da interface do Spotify aplicando conceitos modernos de responsividade, Flexbox,
+                            Grid e manipulação do DOM.</p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Angular</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/spotify-imersao/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/spotify-imersao/tree/main">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/02 projeto.png" alt="Projeto 2">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">One Ticket</h3>
+                        <p>Landing page do One Ticket com foco em venda de ingressos, destacando os seus serviços,
+                            produtos e benefícios em um layout responsivo.</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/meu-site/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/meu-site">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+				
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/03 projeto.png" alt="Projeto 3">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AlertaBlu</h3>
+                        <p>Dashboard de monitoramento climático e hidrológico com layout responsivo, cards informativos
+                            e tabelas dinâmicas.</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span>
+                            <span>UI/UX Designer</span>
+                            <span>UX Writing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/AlertaBlu/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/AlertaBlu/tree/main">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/04 projeto.jpeg" alt="Projeto 4">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AlertaBlu(calamidade)</h3>
+                        <p>Sistema de atendimento em situaçoes de emergência e calamidade pública.</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span>
+                            <span>UI/UX Designer</span>
+                            <span>UX Writing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/AlertaBlu_Para_Calamidade/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/AlertaBlu_Para_Calamidade">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/05 projeto.png" alt="Projeto 5">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Baymax</h3>
+                        <p>personagem do filme 'Big Hero'</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span>
+                            <span>UI/UX Designer</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/projeto-baymax/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/projeto-baymax">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/projeto/06 projeto.png" alt="Projeto 6">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">MZA Amorim - Marketing Digital</h3>
+                        <p>Empresa da área de Marketing Digital</p>
+                        <div class="project-tech">
+                            <span>HTML/CSS</span>
+                            <span>UI/UX Designer</span>
+                            <span>UX Writing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paulo88.github.io/AlertaBlu/">Visualizar</a>
+                            <a href="https://github.com/Paulo88/AlertaBlu/tree/main">GitHub</a>
+                        </div>
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Section -->
+<section class="section" id="contato">
+    <div class="container">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-form">
+            <form action="https://formsubmit.co/el/kawuta" method="POST">
+                <!-- Campo oculto antispam -->
+                <input type="text" name="_honey" style="display:none">
+                
+                <!-- Desativa o CAPTCHA -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <!-- Redirecionamento após envio -->
+                <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea name="message" id="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Paulo<span> Amorim 😎</span></h3>
+                    <p>Desenvolvedor Front-end especializado em criar interfaces modernas e responsivas.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Paulo88" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/paulo-amorim88/" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/paulo.4morim/" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                                <path d="M17.5 6.5h.01"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li>pauloamorrim91@gmail.com</li>
+                        <li>Santa Catarina, Brasil</li>
+                        <li>+55 (47) 9 9794-7678</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Paulo Amorim. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<span>Modo Claro</span> ☀️';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeToggle.innerHTML = '<span>Modo Escuro</span> 🌙';
             }
-            /* Rola o carrossel */
-            function scrollCarousel(distance) {
-                document.getElementById("techCarousel").scrollBy({ left: distance, behavior: "smooth" });
-            }
+        });
 
-            const projects = {
-                uiux: [
-                    { name: "AlertaBlu - uma re-leitura do layout oficial do 'AlertBlu'(Trabalho Acadêmico)", link: "https://paulo88.github.io/AlertaBlu/" },
-                    { name: "AlertaBlu(calamidade) - Sistema de atendimento em situaçoes de emergência e calamidade pública(Trabalho Acadêmico)", link: "https://paulo88.github.io/AlertaBlu_Para_Calamidade/" },
-                    { name: "Baymax - personagem do filme 'Big Hero'(Trabalho Acadêmico)", link: "https://paulo88.github.io/projeto-baymax/" },
-                    { name: "Layout do Spotify(Trabalho Acadêmico)", link: "https://paulo88.github.io/spotify-imersao/" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                ],
-                java: [
-                    { name: "StudyFlow – Um app que facilita a vida acadêmica dos estudantes(Trabalho Acadêmico)", link: "https://www.figma.com/xxxxxx" },
-                    { name: "Calculadora(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Editor de texto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Sistema de comanda(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Tic Tac Toe - Jogo da velha(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Calculadora de IMC(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Calculadora de Ciêntifica(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Sistema de Biblioteca(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Sistema de Vendas(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Lista de Tarefas(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                ],
-                cc: [
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                ],
-                c: [
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                ],
-                HtmlCss: [
-                    { name: "AlertaBlu - uma re-leitura do layout oficial do 'AlertBlu'(Trabalho Acadêmico)", link: "https://paulo88.github.io/AlertaBlu/" },
-                    { name: "AlertaBlu(calamidade) - Sistema de atendimento em situaçoes de emergência e calamidade pública(Trabalho Acadêmico)", link: "https://paulo88.github.io/AlertaBlu_Para_Calamidade/" },
-                    { name: "Baymax - personagem do filme 'Big Hero'(Trabalho Acadêmico)", link: "https://paulo88.github.io/projeto-baymax/" },
-                    { name: "Layout do Spotify(Trabalho Acadêmico)", link: "https://paulo88.github.io/spotify-imersao/" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                    { name: "Em Breve mais um projeto(Trabalho Acadêmico)", link: "https://www.figma.com/yyyyyy" },
-                ],
-            };
+        // Skills Filter
+        const skillBtns = document.querySelectorAll('.skill-btn');
+        const skillCards = document.querySelectorAll('.skill-card');
 
-            /* Exibe os projetos de acordo com a tecnologia selecionada */
-            function showProjects(tech) {
-                const projectList = document.getElementById("project-list");
-                projectList.innerHTML = "";
+        skillBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                skillBtns.forEach(b => b.classList.remove('active'));
 
-                if (!projects[tech]) {
-                    projectList.innerHTML = "<p>Nenhum projeto disponível para esta tecnologia.</p>";
-                    return;
-                }
+                // Add active class to clicked button
+                btn.classList.add('active');
 
-                projects[tech].forEach((proj) => {
-                    projectList.innerHTML += `<li><a href="${proj.link}">${proj.name}</a></li>`;
+                // Get filter value
+                const filter = btn.getAttribute('data-filter');
+
+                // Filter skills
+                skillCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if (category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
                 });
-            }
-        </script>
+            });
+        });
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form validation
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            // Simple validation
+            let isValid = true;
+
+            if (nameInput.value.trim() === '') {
+                isValid = false;
+                nameInput.style.borderColor = 'red';
+            } else {
+                nameInput.style.borderColor = '';
+            }
+
+            if (emailInput.value.trim() === '' || !isValidEmail(emailInput.value)) {
+                isValid = false;
+                emailInput.style.borderColor = 'red';
+            } else {
+                emailInput.style.borderColor = '';
+            }
+
+            if (messageInput.value.trim() === '') {
+                isValid = false;
+                messageInput.style.borderColor = 'red';
+            } else {
+                messageInput.style.borderColor = '';
+            }
+
+            if (isValid) {
+                // Here you would typically send the form data to a server
+                alert('Mensagem enviada com sucesso!');
+                contactForm.reset();
+            }
+        });
+
+        // Email validation helper function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.skill-card, .project-card, .about-image, .about-text');
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initialize scroll animation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial styling for animation
+            const animElements = document.querySelectorAll('.skill-card, .project-card, .about-image, .about-text');
+            animElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // Start animations
+            animateOnScroll();
+
+            // Listen for scroll events
+            window.addEventListener('scroll', animateOnScroll);
+        });
+
+        // Save theme preference to localStorage
+        const saveThemePreference = () => {
+            localStorage.setItem('darkMode', isDarkMode);
+        };
+
+        // Load theme preference from localStorage
+        const loadThemePreference = () => {
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedDarkMode === 'true') {
+                isDarkMode = true;
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<span>Modo Claro</span> ☀️';
+            }
+        };
+
+        // Save theme preference when changing
+        themeToggle.addEventListener('click', saveThemePreference);
+
+        // Load theme preference on page load
+        document.addEventListener('DOMContentLoaded', loadThemePreference);
+    </script>
