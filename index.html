@@ -512,6 +512,23 @@
                 grid-template-columns: 1fr;
             }
         }
+
+	    .whatsapp {
+  		position: fixed;
+	        bottom: 20px;
+ 	 /* Distância do fundo */
+ 	        right: 20px;
+         /* Distância da borda direita */
+ 	        z-index: 1000;
+         /* Pra ficar acima de tudo */
+			}
+
+	.whatsapp img {
+	  width: 60px;
+ 	 /* Tamanho bom pro ícone */
+	  height: 60px;
+	  object-fit: cover;
+	}
     </style>
 </head>
 
@@ -832,7 +849,6 @@
     </div>
 </section>
 
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -893,6 +909,9 @@
             </div>
         </div>
     </footer>
+	<a href="https://wa.me/5547997947678" class="whatsapp" target="_blank">
+      		<img src="img/whatsapp.png" alt="Fale Conosco pelo WhatsApp">
+        </a>
 
     <script>
         // Theme Toggle
@@ -957,10 +976,7 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         }
     });
 });
-
-
-        
-
+	    
         // Email validation helper function
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
