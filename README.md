@@ -3,7 +3,7 @@
 Seja bem-vindo(a) ao meu portfólio!
 Este projeto foi criado com muito código, café ☕ e um toque de criatividade para mostrar um pouco do que sou capaz como desenvolvedor Front-end.
 
-## 🛠 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 Este site foi construído do zero, sem frameworks ou mágicas externas — só **HTML**, **CSS** e **JavaScript** puro, do jeitinho que os browsers gostam:
 
