@@ -27,7 +27,7 @@ Esse portfólio se adapta bem a diferentes tamanhos de tela, seja no PC, tablet 
 Além de mostrar meu trabalho, esse portfólio é meu laboratório de experiências com código.  
 É onde brinco, aprendo e evoluo como desenvolvedor Front-end.
 
-## 🔗 Acesse online
+## Acesse online
 
 Você pode ver o portfólio funcionando aqui:  
 👉 [https://paulo88.github.io/](https://paulo88.github.io/)
