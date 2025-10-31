@@ -528,6 +528,74 @@
         height: 50px;
         object-fit: cover;
       }
+
+      /* ==== Testimonials Section ==== */
+      #section-testimonials {
+        text-align: center;
+      }
+
+      .testimonials-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      #section-testimonials .card-static {
+        background-color: var(--primaria);
+        border: 1px solid var(--texto);
+        border-radius: 20px;
+        padding: 20px;
+        width: 350px;
+        max-width: 100%;
+        transition: 0.2s linear;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      #section-testimonials .card-static:hover {
+        border: 1px solid var(--destaque);
+      }
+
+      #section-testimonials p {
+        color: var(--texto);
+        text-align: left;
+        line-height: 1.5rem;
+      }
+
+      .identification {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .photo img {
+        width: 60px !important;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .nome {
+        color: var(--titulos);
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .testimonials-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #section-testimonials .card-static {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
     </style>
   </head>
 
@@ -547,6 +615,8 @@
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#habilidades">Habilidades</a></li>
               <li><a href="#projetos">Projetos</a></li>
+              <li><a href="#projetos_academicos">Projetos Acadêmicos</a></li>
+              <li><a href="#feedback">Feedback</a></li>
               <li><a href="#contato">Contato</a></li>
             </ul>
           </nav>
@@ -614,6 +684,9 @@
 
             <a href="files/Paulo Amorim CV.pdf" class="btn" download
               >Download CV</a
+            >
+            <a href="files/Paulo Amorim – Portfólio.pdf" class="btn" download
+              >Download Portfólio</a
             >
           </div>
         </div>
@@ -760,7 +833,7 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Sessão Projetos -->
     <section class="section" id="projetos">
       <div class="container">
         <h2 class="section-title">Meus Projetos</h2>
@@ -768,10 +841,70 @@
           <!-- Project 1 -->
           <div class="project-card">
             <div class="project-image">
+              <img src="img/projeto/08 projeto.png" alt="Projeto 1" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                COB - Conectando Orquestras Brasileiras
+              </h3>
+              <p>
+                O COB é uma iniciativa dedicada a fomentar a colaboração entre
+                orquestras de todo o país, visando estabelecer uma rede
+                colaborativa.
+              </p>
+              <div class="project-tech">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>UI/UX Designer</span>
+                <span>UX Writing</span>
+              </div>
+              <div class="project-links">
+                <a href="https://redecob.site/">Visualizar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img src="img/projeto/09 projeto(paulo).png" alt="Projeto 2" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                OCA – Organização Cultural Alternativa
+              </h3>
+              <p>
+                A ONG OCA é uma entidade sem fins lucrativos que atua promovendo
+                a inclusão social e o desenvolvimento integral de pessoas com
+                deficiência e suas famílias.
+              </p>
+              <div class="project-tech">
+                <span>HTML/CSS</span>
+                <span>Javascript</span>
+                <span>UI/UX Designer</span>
+                <span>UX Writing</span>
+              </div>
+              <div class="project-links">
+                <a href="https://ongoca.org/">Visualizar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sessão Projetos Academicos -->
+    <section class="section" id="projetos_academicos">
+      <div class="container">
+        <h2 class="section-title">Meus Projetos Acadêmicos</h2>
+        <div class="projects-grid">
+          <!-- Projeto 1 -->
+          <div class="project-card">
+            <div class="project-image">
               <img src="img/projeto/01 projeto.jpg" alt="Projeto 1" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Spotify</h3>
+              <h3 class="project-title">Spotify(Curso Alura)</h3>
               <p>
                 Recriação da interface do Spotify aplicando conceitos modernos
                 de responsividade, Flexbox, Grid e manipulação do DOM.
@@ -791,13 +924,13 @@
             </div>
           </div>
 
-          <!-- Project 2 -->
+          <!-- Projeto 2 -->
           <div class="project-card">
             <div class="project-image">
               <img src="img/projeto/02 projeto.png" alt="Projeto 2" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">One Ticket</h3>
+              <h3 class="project-title">One Ticket(FURB - BCC)</h3>
               <p>
                 Landing page do One Ticket com foco em venda de ingressos,
                 destacando os seus serviços, produtos e benefícios em um layout
@@ -805,6 +938,7 @@
               </p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
+                <span>UI/UX Designer</span>
               </div>
               <div class="project-links">
                 <a href="https://paulo88.github.io/meu-site/">Visualizar</a>
@@ -818,7 +952,7 @@
               <img src="img/projeto/03 projeto.png" alt="Projeto 3" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">AlertaBlu</h3>
+              <h3 class="project-title">AlertaBlu(Curso UI/UX Designer)</h3>
               <p>
                 Dashboard de monitoramento climático e hidrológico com layout
                 responsivo, cards informativos e tabelas dinâmicas.
@@ -840,7 +974,7 @@
               <img src="img/projeto/04 projeto.jpeg" alt="Projeto 4" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">AlertaBlu(calamidade)</h3>
+              <h3 class="project-title">AlertaBlu (Curso UI/UX Designer)</h3>
               <p>
                 Sistema de atendimento em situaçoes de emergência e calamidade
                 pública.
@@ -864,7 +998,7 @@
               <img src="img/projeto/05 projeto.png" alt="Projeto 5" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Baymax</h3>
+              <h3 class="project-title">Baymax(Acadêmico)</h3>
               <p>personagem do filme 'Big Hero'</p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
@@ -905,7 +1039,7 @@
               <img src="img/projeto/07 projeto.png" alt="Projeto 6" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Mini Wordle</h3>
+              <h3 class="project-title">Mini Wordle(FURB - BCC)</h3>
               <p>Jogo de adivinhação de palavras</p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
@@ -918,53 +1052,87 @@
               </div>
             </div>
           </div>
-
-          <!-- Project 8 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="img/projeto/08 projeto.png" alt="Projeto 8" />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                COB - Conectando Orquestras Brasileiras
-              </h3>
-              <p>Empresa da área de Organização Social</p>
-              <div class="project-tech">
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-                <span>UI/UX Designer</span>
-                <span>UX Writing</span>
-              </div>
-              <div class="project-links">
-                <a href="https://redecob.site/">Visualizar</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 9 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="img/projeto/09 projeto(paulo).png" alt="Projeto 9" />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">ONG OCA</h3>
-              <p>Empresa da área de Organização Social</p>
-              <div class="project-tech">
-                <span>HTML/CSS</span>
-                <span>Javascript</span>
-                <span>UI/UX Designer</span>
-                <span>UX Writing</span>
-              </div>
-              <div class="project-links">
-                <a href="https://ongoca.org/">Visualizar</a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Sessão feedback -->
+    <section class="section" id="feedback">
+      <div class="container">
+        <h2 class="section-title">Feedback</h2>
+
+        <section id="section-testimonials">
+          <!-- 🔧 container único para os cards -->
+          <div class="testimonials-container">
+            <div class="card-static">
+              <p>
+                "Paulo me impressionou desde o momento que nos conhecemos,
+                sempre demonstrou muita organização, comprometimento, vontade de
+                aprender, habilidades com tecnologia, ótima comunicação, sendo
+                sempre muito solícito e uma pessoa incrível para ter no time!!"
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/Rede COB.jpg"
+                    alt="White young woman with blond hair smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Gisely Nascimento</strong></p>
+                  <p>Idealizadora e Administradora Voluntária da REDE COB</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-static">
+              <p>
+                "Além de todos os pontos positivos de ter Paulo como parceiro de
+                trabalho, a escuta sensível e a agilidade eram o que mais me
+                impressionava nele. Em todas as frentes ele soube colaborar de
+                forma generosa além de ser muito criativo."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/oca.jpg"
+                    alt="Black young woman smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>André Nogueria</strong></p>
+                  <p>Presidente ONG OCA</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-static">
+              <p>
+                "Trabalhar com o Paulo é sempre uma experiência muito positiva.
+                Ele tem um olhar criativo e estratégico que faz toda diferença
+                nos projetos. É dedicado, ágil e está sempre aberto a colaborar
+                e trazer novas ideias. Além de ser um excelente designer, é
+                alguém que contribui para o clima leve e produtivo do time."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/ISCS.jpg"
+                    alt="Black young woman smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Juliana Santos</strong></p>
+                  <p>Coordenação e Liderança do time de Marketing na ISCS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Sessão de Contato -->
     <section class="section" id="contato">
       <div class="container">
         <h2 class="section-title">Entre em Contato</h2>
