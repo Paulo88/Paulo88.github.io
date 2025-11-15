@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/logo.png" type="image/png" />
-    <title>Paulo Amorim Dev</title>
+    <link rel="icon" href="img/smile.png" type="image/png" />
+    <title>Paulo Amorim Dev <(*-*<)</title>
     <style>
       :root {
         --primary: #4361ee;
@@ -110,6 +110,70 @@
 
       .theme-toggle span {
         font-size: 0.9rem;
+      }
+
+      /* ====== HEADER RESPONSIVO ====== */
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        nav {
+          width: 100%;
+          display: none;
+          text-align: center;
+          margin-top: 1rem;
+        }
+
+        nav.active {
+          display: block;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .theme-toggle {
+          order: 2;
+        }
+
+        .menu-toggle {
+          display: flex;
+          order: 3;
+        }
+
+        /* Animação do ícone ao abrir */
+        .menu-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translateY(8px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translateY(-8px);
+        }
       }
 
       /* Hero Section */
@@ -528,6 +592,192 @@
         height: 50px;
         object-fit: cover;
       }
+
+      /* ==== Testimonials Section ==== */
+      #section-testimonials {
+        text-align: center;
+      }
+
+      .testimonials-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      #section-testimonials .card-static {
+        background-color: var(--primaria);
+        border: 1px solid var(--texto);
+        border-radius: 20px;
+        padding: 20px;
+        width: 350px;
+        max-width: 100%;
+        transition: 0.2s linear;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      #section-testimonials .card-static:hover {
+        border: 1px solid var(--destaque);
+      }
+
+      #section-testimonials p {
+        color: var(--texto);
+        text-align: left;
+        line-height: 1.5rem;
+      }
+
+      .identification {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .photo img {
+        width: 60px !important;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .nome {
+        color: var(--titulos);
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        .testimonials-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #section-testimonials .card-static {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+
+      /* ===== MOBILE: esconder cards até clicar ===== */
+      @media (max-width: 768px) {
+        .skills-grid {
+          display: none;
+        }
+
+        .skills-grid.active {
+          display: grid;
+        }
+      }
+
+      .scroll-controls {
+        display: none; /* escondidas no desktop */
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .scroll-btn {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .scroll-btn:hover {
+        background-color: var(--accent);
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .scroll-controls {
+          display: flex;
+        }
+      }
+
+      /* ===== MOBILE: projetos e feedbacks com scroll horizontal ===== */
+      @media (max-width: 768px) {
+        .projects-grid,
+        .testimonials-container {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          gap: 1rem;
+          padding-bottom: 1rem;
+        }
+
+        .project-card,
+        #section-testimonials .card-static {
+          flex: 0 0 80%;
+          min-width: 280px;
+        }
+
+        /* Esconde scrollbar feio (opcional) */
+        .projects-grid::-webkit-scrollbar,
+        .testimonials-container::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      /* ===== SCROLL HORIZONTAL NO MOBILE ===== */
+      @media (max-width: 768px) {
+        .projects-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          gap: 1rem;
+          padding-bottom: 10px;
+        }
+
+        .project-card {
+          flex: 0 0 80%;
+          min-width: 80%;
+          scroll-snap-align: start;
+        }
+
+        /* Esconde a barra de rolagem (opcional) */
+        .projects-grid::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Deixa as setas fixas acima do carrossel */
+        .scroll-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .scroll-btn {
+          background: #1751ce;
+          color: #fff;
+          border: none;
+          width: 40px; /* largura fixa */
+          height: 40px; /* altura igual à largura */
+          display: flex; /* centraliza o conteúdo */
+          align-items: center; /* centraliza verticalmente */
+          justify-content: center; /* centraliza horizontalmente */
+          border-radius: 50%; /* deixa o botão circular */
+          cursor: pointer;
+          font-size: 1.3rem; /* tamanho bom pro emoji */
+          opacity: 0.85;
+          transition: background 0.3s, transform 0.2s, opacity 0.3s;
+        }
+
+        .scroll-btn:hover {
+          background: #c7187e;
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
     </style>
   </head>
 
@@ -547,12 +797,20 @@
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#habilidades">Habilidades</a></li>
               <li><a href="#projetos">Projetos</a></li>
+              <li><a href="#projetos_academicos">Projetos Acadêmicos</a></li>
+              <li><a href="#feedback">Feedback</a></li>
               <li><a href="#contato">Contato</a></li>
             </ul>
           </nav>
           <button id="themeToggle" class="theme-toggle">
             <span id="themeText">Modo Escuro</span>
             🌙
+          </button>
+          <!-- Botão hamburguer -->
+          <button class="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
@@ -614,6 +872,9 @@
 
             <a href="files/Paulo Amorim CV.pdf" class="btn" download
               >Download CV</a
+            >
+            <a href="files/Paulo Amorim – Portfólio.pdf" class="btn" download
+              >Download Portfólio</a
             >
           </div>
         </div>
@@ -760,18 +1021,94 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Sessão Projetos -->
     <section class="section" id="projetos">
       <div class="container">
         <h2 class="section-title">Meus Projetos</h2>
+        <div class="scroll-controls">
+          <button class="scroll-btn left" aria-label="Projetos anteriores">
+            ←
+          </button>
+          <button class="scroll-btn right" aria-label="Próximos projetos">
+            ➜
+          </button>
+        </div>
         <div class="projects-grid">
           <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img src="img/projeto/08 projeto.png" alt="Projeto 1" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                COB - Conectando Orquestras Brasileiras
+              </h3>
+              <p>
+                O COB é uma iniciativa dedicada a fomentar a colaboração entre
+                orquestras de todo o país, visando estabelecer uma rede
+                colaborativa.
+              </p>
+              <div class="project-tech">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>UI/UX Designer</span>
+                <span>UX Writing</span>
+              </div>
+              <div class="project-links">
+                <a href="https://redecob.site/">Visualizar</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img src="img/projeto/09 projeto(paulo).png" alt="Projeto 2" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">
+                OCA – Organização Cultural Alternativa
+              </h3>
+              <p>
+                A ONG OCA é uma entidade sem fins lucrativos que atua promovendo
+                a inclusão social e o desenvolvimento integral de pessoas com
+                deficiência e suas famílias.
+              </p>
+              <div class="project-tech">
+                <span>HTML/CSS</span>
+                <span>Javascript</span>
+                <span>UI/UX Designer</span>
+                <span>UX Writing</span>
+              </div>
+              <div class="project-links">
+                <a href="https://ongoca.org/">Visualizar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sessão Projetos Academicos -->
+    <section class="section" id="projetos_academicos">
+      <div class="container">
+        <h2 class="section-title">Meus Projetos Acadêmicos</h2>
+        <div class="scroll-controls">
+          <button class="scroll-btn left" aria-label="Feedbacks anteriores">
+            ←
+          </button>
+          <button class="scroll-btn right" aria-label="Próximos feedbacks">
+            ➜
+          </button>
+        </div>
+        <div class="projects-grid">
+          <!-- Projeto 1 -->
           <div class="project-card">
             <div class="project-image">
               <img src="img/projeto/01 projeto.jpg" alt="Projeto 1" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Spotify</h3>
+              <h3 class="project-title">Spotify(Curso Alura)</h3>
               <p>
                 Recriação da interface do Spotify aplicando conceitos modernos
                 de responsividade, Flexbox, Grid e manipulação do DOM.
@@ -787,20 +1124,17 @@
                 <a href="https://paulo88.github.io/spotify-imersao/"
                   >Visualizar</a
                 >
-                <a href="https://github.com/Paulo88/spotify-imersao/tree/main"
-                  >GitHub</a
-                >
               </div>
             </div>
           </div>
 
-          <!-- Project 2 -->
+          <!-- Projeto 2 -->
           <div class="project-card">
             <div class="project-image">
               <img src="img/projeto/02 projeto.png" alt="Projeto 2" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">One Ticket</h3>
+              <h3 class="project-title">One Ticket(FURB - BCC)</h3>
               <p>
                 Landing page do One Ticket com foco em venda de ingressos,
                 destacando os seus serviços, produtos e benefícios em um layout
@@ -808,10 +1142,10 @@
               </p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
+                <span>UI/UX Designer</span>
               </div>
               <div class="project-links">
                 <a href="https://paulo88.github.io/meu-site/">Visualizar</a>
-                <a href="https://github.com/Paulo88/meu-site">GitHub</a>
               </div>
             </div>
           </div>
@@ -822,7 +1156,7 @@
               <img src="img/projeto/03 projeto.png" alt="Projeto 3" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">AlertaBlu</h3>
+              <h3 class="project-title">AlertaBlu(Curso UI/UX Designer)</h3>
               <p>
                 Dashboard de monitoramento climático e hidrológico com layout
                 responsivo, cards informativos e tabelas dinâmicas.
@@ -834,9 +1168,6 @@
               </div>
               <div class="project-links">
                 <a href="https://paulo88.github.io/AlertaBlu/">Visualizar</a>
-                <a href="https://github.com/Paulo88/AlertaBlu/tree/main"
-                  >GitHub</a
-                >
               </div>
             </div>
           </div>
@@ -847,7 +1178,7 @@
               <img src="img/projeto/04 projeto.jpeg" alt="Projeto 4" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">AlertaBlu(calamidade)</h3>
+              <h3 class="project-title">AlertaBlu (Curso UI/UX Designer)</h3>
               <p>
                 Sistema de atendimento em situaçoes de emergência e calamidade
                 pública.
@@ -861,9 +1192,6 @@
                 <a href="https://paulo88.github.io/AlertaBlu_Para_Calamidade/"
                   >Visualizar</a
                 >
-                <a href="https://github.com/Paulo88/AlertaBlu_Para_Calamidade"
-                  >GitHub</a
-                >
               </div>
             </div>
           </div>
@@ -874,7 +1202,7 @@
               <img src="img/projeto/05 projeto.png" alt="Projeto 5" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Baymax</h3>
+              <h3 class="project-title">Baymax(Acadêmico)</h3>
               <p>personagem do filme 'Big Hero'</p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
@@ -884,7 +1212,6 @@
                 <a href="https://paulo88.github.io/projeto-baymax/"
                   >Visualizar</a
                 >
-                <a href="https://github.com/Paulo88/projeto-baymax">GitHub</a>
               </div>
             </div>
           </div>
@@ -906,7 +1233,6 @@
               </div>
               <div class="project-links">
                 <a href="https://codepen.io/paulo88/full/xxzaoMV">Visualizar</a>
-                <a href="https://codepen.io/paulo88/full/xxzaoMV">CodePen</a>
               </div>
             </div>
           </div>
@@ -917,7 +1243,7 @@
               <img src="img/projeto/07 projeto.png" alt="Projeto 6" />
             </div>
             <div class="project-content">
-              <h3 class="project-title">Mini Wordle</h3>
+              <h3 class="project-title">Mini Wordle(FURB - BCC)</h3>
               <p>Jogo de adivinhação de palavras</p>
               <div class="project-tech">
                 <span>HTML/CSS</span>
@@ -927,52 +1253,6 @@
               </div>
               <div class="project-links">
                 <a href="https://paulo88.github.io/Jogo-Wordle/">Visualizar</a>
-                <a href="https://github.com/Paulo88/Jogo-Wordle">GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 8 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="img/projeto/08 projeto.png" alt="Projeto 8" />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">
-                COB - Conectando Orquestras Brasileiras
-              </h3>
-              <p>Empresa da área de Organização Social</p>
-              <div class="project-tech">
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-                <span>UI/UX Designer</span>
-                <span>UX Writing</span>
-              </div>
-              <div class="project-links">
-                <a href="https://redecob.site/">Visualizar</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 9 -->
-          <div class="project-card">
-            <div class="project-image">
-              <img src="img/projeto/09 projeto(paulo).png" alt="Projeto 9" />
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">ONG OCA</h3>
-              <p>
-                Empresa da área de Organização Social(em construção no momento
-                🚧)
-              </p>
-              <div class="project-tech">
-                <span>HTML/CSS</span>
-                <span>Javascript</span>
-                <span>UI/UX Designer</span>
-                <span>UX Writing</span>
-              </div>
-              <div class="project-links">
-                <a href="https://ongoca.org/">Visualizar</a>
               </div>
             </div>
           </div>
@@ -980,7 +1260,164 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Sessão feedback -->
+    <section class="section" id="feedback">
+      <div class="container">
+        <h2 class="section-title">Feedback</h2>
+
+        <section id="section-testimonials">
+          <!-- 🔧 container único para os cards -->
+          <div class="testimonials-container">
+            <div class="card-static">
+              <p>
+                "Paulo me impressionou desde o momento que nos conhecemos,
+                sempre demonstrou muita organização, comprometimento, vontade de
+                aprender, habilidades com tecnologia, ótima comunicação, sendo
+                sempre muito solícito e uma pessoa incrível para ter no time!!"
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/Rede COB.jpg"
+                    alt="White young woman with blond hair smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Gisely Nascimento</strong></p>
+                  <p>Idealizadora e Administradora Voluntária da REDE COB</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-static">
+              <p>
+                "Além de todos os pontos positivos de ter Paulo como parceiro de
+                trabalho, a escuta sensível e a agilidade eram o que mais me
+                impressionava nele. Em todas as frentes ele soube colaborar de
+                forma generosa além de ser muito criativo."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/oca.jpg"
+                    alt="Black young woman smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>André Nogueria</strong></p>
+                  <p>Presidente ONG OCA</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-static">
+              <p>
+                "Trabalhar com o Paulo é sempre uma experiência muito positiva.
+                Ele tem um olhar criativo e estratégico que faz toda diferença
+                nos projetos. É dedicado, ágil e está sempre aberto a colaborar
+                e trazer novas ideias. Além de ser um excelente designer, é
+                alguém que contribui para o clima leve e produtivo do time."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/ISCS.jpg"
+                    alt="Black young woman smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Juliana Santos</strong></p>
+                  <p>Coordenação e Liderança do time de Marketing na ISCS</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-static">
+              <p>
+                "O Paulo sempre demonstrou grande profissionalismo,
+                responsabilidade e facilidade em lidar com pessoas. Mesmo em
+                situações de pressão, manteve postura madura e colaborativa,
+                buscando soluções práticas e mantendo uma comunicação clara. Tem
+                uma excelente capacidade de aprendizado, adapta-se rapidamente a
+                novos processos e sempre se mostrou disposto a ajudar colegas e
+                contribuir com o clima organizacional. Foi um colaborador
+                confiável, comprometido e com forte senso de ética. Deixo meu
+                reconhecimento pelo excelente trabalho que desempenhou durante o
+                período em que esteve sob minha liderança."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img
+                    src="img/feedback/fernanda.png"
+                    alt="Black young woman smiling"
+                  />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Fernanda Penafort</strong></p>
+                  <p>Líder do setor Gente & Gestão da UNIASSELVI</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-static">
+              <p>
+                "Durante o tempo em que trabalhei com o Paulo na área de TI da
+                Uniasselvi, pude acompanhar sua evolução técnica e seu empenho
+                em aprender novas ferramentas. Ele demonstrou boa lógica,
+                iniciativa para resolver problemas e proatividade na manutenção
+                e suporte aos usuários. Sempre mostrou ser um profissional
+                dedicado, curioso e com grande potencial de crescimento na área
+                tecnológica. Sua postura colaborativa e sua capacidade de
+                entender e atender as necessidades do setor foram diferenciais
+                importantes. Recomendo o Paulo pela sua ética, responsabilidade
+                e pelo comprometimento com os resultados da equipe."
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img src="img/feedback/david.jpg" alt="white guy smiling" />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>David Reif</strong></p>
+                  <p>Líder de TI na UNIASSELVI</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-static">
+              <p>
+                "Trabalhei com o Paulo na Flowti, na operação de NOC, e posso
+                afirmar que ele sempre foi um parceiro de equipe extremamente
+                confiável. Ele demonstrava foco, agilidade e muita atenção aos
+                detalhes, principalmente no monitoramento dos ambientes e na
+                resolução de incidentes. Sempre manteve uma postura
+                profissional, disposto a ajudar e a compartilhar conhecimento
+                com o time. Além de ser muito organizado no registro dos
+                chamados e tratativas. Em momentos de maior demanda, ele se
+                destacava pela calma e pela clareza na comunicação, garantindo
+                que o time mantivesse o fluxo de trabalho de forma eficiente. "
+              </p>
+              <div class="identification">
+                <div class="photo">
+                  <img src="img/feedback/junior.png" alt="white guy smiling" />
+                </div>
+                <div class="name">
+                  <p class="nome"><strong>Antônio Junior</strong></p>
+                  <p>NOC - Assistente de Infraestrutura na Flowti</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="scroll-controls">
+          <button class="scroll-btn left" aria-label="Feedbacks anteriores">
+            ←
+          </button>
+          <button class="scroll-btn right" aria-label="Próximos feedbacks">
+            ➜
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sessão de Contato -->
     <section class="section" id="contato">
       <div class="container">
         <h2 class="section-title">Entre em Contato</h2>
@@ -1130,7 +1567,7 @@
             <ul class="footer-links">
               <li>pauloamorrim34@gmail.com</li>
               <li>Santa Catarina, Brasil</li>
-              <li>Contato apenas por e-mail</li>
+              <li>+55 47 9 9947-5243</li>
             </ul>
           </div>
         </div>
@@ -1139,11 +1576,73 @@
         </div>
       </div>
     </footer>
-    <a href="https://wa.me/5547997947678" class="whatsapp" target="_blank">
+    <a href="https://wa.me/5547999475243" class="whatsapp" target="_blank">
       <img src="img/whatsapp.png" alt="Fale Conosco pelo WhatsApp" />
     </a>
 
     <script>
+      document.querySelectorAll(".scroll-controls").forEach((control) => {
+        const grid = control.nextElementSibling; // Pega o .projects-grid seguinte
+        const btnLeft = control.querySelector(".scroll-btn.left");
+        const btnRight = control.querySelector(".scroll-btn.right");
+
+        btnLeft.addEventListener("click", () => {
+          grid.scrollBy({ left: -300, behavior: "smooth" });
+        });
+
+        btnRight.addEventListener("click", () => {
+          grid.scrollBy({ left: 300, behavior: "smooth" });
+        });
+      });
+      // Função para configurar o scroll horizontal
+      function setupHorizontalScroll(sectionSelector) {
+        const section = document.querySelector(sectionSelector);
+        if (!section) return;
+
+        const container = section.querySelector(
+          ".projects-grid, .testimonials-container"
+        );
+        const leftBtn = section.querySelector(".scroll-btn.left");
+        const rightBtn = section.querySelector(".scroll-btn.right");
+
+        if (!container || !leftBtn || !rightBtn) return;
+
+        leftBtn.addEventListener("click", () => {
+          container.scrollBy({ left: -300, behavior: "smooth" });
+        });
+
+        rightBtn.addEventListener("click", () => {
+          container.scrollBy({ left: 300, behavior: "smooth" });
+        });
+      }
+
+      // Aplica nas seções desejadas
+      setupHorizontalScroll("#projetos");
+      setupHorizontalScroll("#feedback");
+
+      // Seleciona os botões e o grid
+      const skillButtons = document.querySelectorAll(".skill-btn");
+      const skillsGrid = document.querySelector(".skills-grid");
+
+      skillButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Remove estado ativo de todos os botões
+          skillButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          // Mostra os cards quando o usuário clicar
+          skillsGrid.classList.add("active");
+        });
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("header nav");
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      });
+
       // Theme Toggle
       const themeToggle = document.getElementById("themeToggle");
       const themeText = document.getElementById("themeText");
